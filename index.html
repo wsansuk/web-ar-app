@@ -58,6 +58,9 @@
         position="0 2 2"
       ></a-entity>
 
+      <!-- Sky (environment reflection) -->
+      <a-sky color="#e0f7ff"></a-sky>
+
       <!-- Customer Marker -->
       <a-marker
         class="valid-ar-marker"
@@ -176,7 +179,7 @@
       <a-entity camera></a-entity>
     </a-scene>
 
-    <!-- Script เปลี่ยนทุก mesh เป็น Gradient ฟ้า->เขียว -->
+    <!-- Script เปลี่ยนทุก mesh เป็น Gradient ฟ้า->เขียว + เงา -->
     <script>
       const topColor = new THREE.Color(0x0040ff); // ฟ้า
       const bottomColor = new THREE.Color(0x00ff40); // เขียว
@@ -196,6 +199,8 @@
           model.traverse((node) => {
             if (node.isMesh) {
               const geometry = node.geometry;
+              geometry.computeBoundingBox();
+
               const colorAttr = new Float32Array(
                 geometry.attributes.position.count * 3
               );
@@ -209,12 +214,19 @@
                 colorAttr[i * 3 + 1] = color.g;
                 colorAttr[i * 3 + 2] = color.b;
               }
+
               geometry.setAttribute(
                 "color",
                 new THREE.BufferAttribute(colorAttr, 3)
               );
-              node.material = new THREE.MeshBasicMaterial({
+
+              node.material = new THREE.MeshStandardMaterial({
                 vertexColors: true,
+                metalness: 0.8, // โลหะเงา
+                roughness: 0.2, // ยิ่งน้อยยิ่งเงา
+                emissive: new THREE.Color(0x0040ff),
+                emissiveIntensity: 0.3,
+                envMapIntensity: 1.0,
               });
             }
           });
