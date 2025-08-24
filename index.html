@@ -174,17 +174,20 @@
           marker.addEventListener("markerFound", async () => {
             const station = marker.getAttribute("data-station");
             try {
-              let data = await fetch("http://localhost:3000/api/scanned", {
-                method: "post",
-                headers: {
-                  Accept: "application/json",
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                  username: username,
-                  station: station,
-                }),
-              });
+              let data = await fetch(
+                "https://ar-app-omega.vercel.app/api/scanned",
+                {
+                  method: "post",
+                  headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify({
+                    username: username,
+                    station: station,
+                  }),
+                }
+              );
             } catch (err) {
               console.log(err);
             }
