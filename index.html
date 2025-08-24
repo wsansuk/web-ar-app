@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8" />
-    <title>Web AR App</title>
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
     <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
@@ -16,68 +14,147 @@
       loading-screen="enabled: false;"
       renderer="logarithmicDepthBuffer: true;"
       arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
+      id="scene"
       embedded
       gesture-detector
     >
       <a-assets>
-        <!-- GLB Assets -->
-        <a-asset-item
-          id="animated-asset"
-          src="/assets/asset.glb"
-        ></a-asset-item>
         <a-asset-item
           id="customer-model"
-          src="/assets/ar_customer/asset.glb"
+          src="assets/ar_customer/asset.glb"
         ></a-asset-item>
-
-        <!-- Marker patterns -->
-        <a-asset-item id="marker1" src="/assets/marker.patt"></a-asset-item>
         <a-asset-item
-          id="marker2"
-          src="/assets/ar_customer/marker.patt"
+          id="result-model"
+          src="assets/ar_result/asset.glb"
+        ></a-asset-item>
+        <a-asset-item
+          id="connection-model"
+          src="assets/ar_connection/asset.glb"
+        ></a-asset-item>
+        <a-asset-item
+          id="excellence-model"
+          src="assets/ar_excellence/asset.glb"
+        ></a-asset-item>
+        <a-asset-item
+          id="innovation-model"
+          src="assets/ar_innovation/asset.glb"
         ></a-asset-item>
       </a-assets>
 
-      <!-- Marker 1 -->
+      <!-- Customer -->
       <a-marker
-        id="marker1-entity"
-        class="ar-marker"
+        id="animated-marker"
+        class="valid-ar-marker"
         data-station="station1"
         type="pattern"
         preset="custom"
-        url="#marker1"
+        url="assets/ar_customer/marker.patt"
         raycaster="objects: .clickable"
         emitevents="true"
         cursor="fuse: false; rayOrigin: mouse;"
+        id="markerA"
       >
         <a-entity
-          id="animated-model"
-          scale="14 14 14"
+          id="bowser-model"
+          scale="14.243766309982801 14.243766309982801 14.243766309982801"
           animation-mixer="loop: repeat"
-          gltf-model="#animated-asset"
+          gltf-model="#customer-model"
           class="clickable"
           gesture-handler
           rotation="-90 0 0"
         ></a-entity>
       </a-marker>
 
-      <!-- Marker 2 -->
+      <!-- Result -->
       <a-marker
-        id="marker2-entity"
-        class="ar-marker"
+        id="animated-marker"
+        class="valid-ar-marker"
         data-station="station2"
         type="pattern"
         preset="custom"
-        url="#marker2"
+        url="assets/ar_result/marker.patt"
         raycaster="objects: .clickable"
         emitevents="true"
         cursor="fuse: false; rayOrigin: mouse;"
+        id="markerA"
       >
         <a-entity
-          id="customer-model-entity"
-          scale="14 14 14"
+          id="bowser-model"
+          scale="14.243766309982801 14.243766309982801 14.243766309982801"
           animation-mixer="loop: repeat"
-          gltf-model="#customer-model"
+          gltf-model="#result-model"
+          class="clickable"
+          gesture-handler
+          rotation="-90 0 0"
+        ></a-entity>
+      </a-marker>
+
+      <!-- Connection -->
+      <a-marker
+        id="animated-marker"
+        class="valid-ar-marker"
+        data-station="station3"
+        type="pattern"
+        preset="custom"
+        url="assets/ar_connection/marker.patt"
+        raycaster="objects: .clickable"
+        emitevents="true"
+        cursor="fuse: false; rayOrigin: mouse;"
+        id="markerA"
+      >
+        <a-entity
+          id="bowser-model"
+          scale="14.243766309982801 14.243766309982801 14.243766309982801"
+          animation-mixer="loop: repeat"
+          gltf-model="#connection-model"
+          class="clickable"
+          gesture-handler
+          rotation="-90 0 0"
+        ></a-entity>
+      </a-marker>
+
+      <!-- Excellence -->
+      <a-marker
+        id="animated-marker"
+        class="valid-ar-marker"
+        data-station="station4"
+        type="pattern"
+        preset="custom"
+        url="assets/ar_excellence/marker.patt"
+        raycaster="objects: .clickable"
+        emitevents="true"
+        cursor="fuse: false; rayOrigin: mouse;"
+        id="markerA"
+      >
+        <a-entity
+          id="bowser-model"
+          scale="14.243766309982801 14.243766309982801 14.243766309982801"
+          animation-mixer="loop: repeat"
+          gltf-model="#excellence-model"
+          class="clickable"
+          gesture-handler
+          rotation="-90 0 0"
+        ></a-entity>
+      </a-marker>
+
+      <!-- Innovation -->
+      <a-marker
+        id="animated-marker"
+        class="valid-ar-marker"
+        data-station="station5"
+        type="pattern"
+        preset="custom"
+        url="assets/ar_innovation/marker.patt"
+        raycaster="objects: .clickable"
+        emitevents="true"
+        cursor="fuse: false; rayOrigin: mouse;"
+        id="markerA"
+      >
+        <a-entity
+          id="bowser-model"
+          scale="14.243766309982801 14.243766309982801 14.243766309982801"
+          animation-mixer="loop: repeat"
+          gltf-model="#innovation-model"
           class="clickable"
           gesture-handler
           rotation="-90 0 0"
@@ -92,13 +169,13 @@
         const urlParams = new URLSearchParams(window.location.search);
         const username = urlParams.get("username");
 
-        const markers = document.querySelectorAll(".ar-marker");
+        const markers = document.querySelectorAll(".valid-ar-marker");
         markers.forEach((marker) => {
           marker.addEventListener("markerFound", async () => {
             const station = marker.getAttribute("data-station");
             try {
-              await fetch("https://ar-app-omega.vercel.app/api/scanned", {
-                method: "POST",
+              let data = await fetch("http://localhost:3000/api/scanned", {
+                method: "post",
                 headers: {
                   Accept: "application/json",
                   "Content-Type": "application/json",
