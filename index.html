@@ -58,9 +58,6 @@
         position="0 2 2"
       ></a-entity>
 
-      <!-- Sky (environment reflection) -->
-      <a-sky color="#e0f7ff"></a-sky>
-
       <!-- Customer Marker -->
       <a-marker
         class="valid-ar-marker"
@@ -179,10 +176,10 @@
       <a-entity camera></a-entity>
     </a-scene>
 
-    <!-- Script เปลี่ยนทุก mesh เป็น Gradient ฟ้า->เขียว + เงา -->
+    <!-- Script เปลี่ยนทุก mesh เป็น Gradient ฟ้า->เขียว -->
     <script>
-      const topColor = new THREE.Color(0x0040ff); // ฟ้า
-      const bottomColor = new THREE.Color(0x00ff40); // เขียว
+      const topColor = new THREE.Color(0x3399ff); // ฟ้าใกล้โทนเตียง
+      const bottomColor = new THREE.Color(0x33ffcc); // เขียวฟ้าอ่อน
 
       const entities = [
         "customer-entity",
@@ -222,11 +219,10 @@
 
               node.material = new THREE.MeshStandardMaterial({
                 vertexColors: true,
-                metalness: 0.8, // โลหะเงา
-                roughness: 0.2, // ยิ่งน้อยยิ่งเงา
-                emissive: new THREE.Color(0x0040ff),
-                emissiveIntensity: 0.3,
-                envMapIntensity: 1.0,
+                metalness: 0.7,
+                roughness: 0.3,
+                emissive: new THREE.Color(0x003366),
+                emissiveIntensity: 0.2,
               });
             }
           });
