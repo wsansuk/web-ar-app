@@ -178,8 +178,8 @@
 
     <!-- Script เปลี่ยนทุก mesh เป็น Gradient ฟ้า->เขียว -->
     <script>
-      const topColor = new THREE.Color(0x3399ff); // ฟ้าใกล้โทนเตียง
-      const bottomColor = new THREE.Color(0x33ffcc); // เขียวฟ้าอ่อน
+      const topColor = new THREE.Color(0x0040ff); // ฟ้า
+      const bottomColor = new THREE.Color(0x00ff40); // เขียว
 
       const entities = [
         "customer-entity",
@@ -196,8 +196,6 @@
           model.traverse((node) => {
             if (node.isMesh) {
               const geometry = node.geometry;
-              geometry.computeBoundingBox();
-
               const colorAttr = new Float32Array(
                 geometry.attributes.position.count * 3
               );
@@ -211,18 +209,12 @@
                 colorAttr[i * 3 + 1] = color.g;
                 colorAttr[i * 3 + 2] = color.b;
               }
-
               geometry.setAttribute(
                 "color",
                 new THREE.BufferAttribute(colorAttr, 3)
               );
-
-              node.material = new THREE.MeshStandardMaterial({
+              node.material = new THREE.MeshBasicMaterial({
                 vertexColors: true,
-                metalness: 0.7,
-                roughness: 0.3,
-                emissive: new THREE.Color(0x003366),
-                emissiveIntensity: 0.2,
               });
             }
           });
