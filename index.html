@@ -176,9 +176,10 @@
       <a-entity camera></a-entity>
     </a-scene>
 
-    <!-- Script เปลี่ยนทุก mesh เป็น MeshBasicMaterial สีฟ้า uniform -->
+    <!-- Script เปลี่ยนทุก mesh เป็น Gradient ฟ้า->เขียว -->
     <script>
-      const color = 0x0040ff; // ฟ้าเข้ม
+      const topColor = new THREE.Color(0x0040ff); // ฟ้า
+      const bottomColor = new THREE.Color(0x00ff40); // เขียว
 
       const entities = [
         "customer-entity",
@@ -194,7 +195,27 @@
           const model = el.getObject3D("mesh");
           model.traverse((node) => {
             if (node.isMesh) {
-              node.material = new THREE.MeshBasicMaterial({ color: color });
+              const geometry = node.geometry;
+              const colorAttr = new Float32Array(
+                geometry.attributes.position.count * 3
+              );
+              for (let i = 0; i < geometry.attributes.position.count; i++) {
+                const y = geometry.attributes.position.getY(i);
+                const t =
+                  (y - geometry.boundingBox.min.y) /
+                  (geometry.boundingBox.max.y - geometry.boundingBox.min.y);
+                const color = topColor.clone().lerp(bottomColor, 1 - t);
+                colorAttr[i * 3] = color.r;
+                colorAttr[i * 3 + 1] = color.g;
+                colorAttr[i * 3 + 2] = color.b;
+              }
+              geometry.setAttribute(
+                "color",
+                new THREE.BufferAttribute(colorAttr, 3)
+              );
+              node.material = new THREE.MeshBasicMaterial({
+                vertexColors: true,
+              });
             }
           });
         });
