@@ -41,17 +41,9 @@
         ></a-asset-item>
       </a-assets>
 
-      <!-- แสง -->
-      <a-entity
-        light="type: ambient; color: #ffffff; intensity: 0.5"
-      ></a-entity>
-      <a-entity
-        light="type: directional; color: #ffffff; intensity: 1"
-        position="1 2 1"
-      ></a-entity>
-
-      <!-- Customer Marker -->
+      <!-- Customer -->
       <a-marker
+        id="animated-marker"
         class="valid-ar-marker"
         data-station="station1"
         type="pattern"
@@ -60,28 +52,22 @@
         raycaster="objects: .clickable"
         emitevents="true"
         cursor="fuse: false; rayOrigin: mouse;"
+        id="markerA"
       >
         <a-entity
-          scale="28.24 28.24 28.24"
+          id="bowser-model"
+          scale="14.243766309982801 14.243766309982801 14.243766309982801"
           animation-mixer="loop: repeat"
           gltf-model="#customer-model"
           class="clickable"
           gesture-handler
           rotation="-90 0 0"
-        >
-          <a-animation
-            attribute="material.color"
-            from="#00f"
-            to="#0040ff"
-            dur="3000"
-            direction="alternate"
-            repeat="indefinite"
-          ></a-animation>
-        </a-entity>
+        ></a-entity>
       </a-marker>
 
-      <!-- Result Marker -->
+      <!-- Result -->
       <a-marker
+        id="animated-marker"
         class="valid-ar-marker"
         data-station="station2"
         type="pattern"
@@ -90,28 +76,22 @@
         raycaster="objects: .clickable"
         emitevents="true"
         cursor="fuse: false; rayOrigin: mouse;"
+        id="markerA"
       >
         <a-entity
-          scale="28.24 28.24 28.24"
+          id="bowser-model"
+          scale="14.243766309982801 14.243766309982801 14.243766309982801"
           animation-mixer="loop: repeat"
           gltf-model="#result-model"
           class="clickable"
           gesture-handler
           rotation="-90 0 0"
-        >
-          <a-animation
-            attribute="material.color"
-            from="#00f"
-            to="#0040ff"
-            dur="3000"
-            direction="alternate"
-            repeat="indefinite"
-          ></a-animation>
-        </a-entity>
+        ></a-entity>
       </a-marker>
 
-      <!-- Connection Marker -->
+      <!-- Connection -->
       <a-marker
+        id="animated-marker"
         class="valid-ar-marker"
         data-station="station3"
         type="pattern"
@@ -120,28 +100,22 @@
         raycaster="objects: .clickable"
         emitevents="true"
         cursor="fuse: false; rayOrigin: mouse;"
+        id="markerA"
       >
         <a-entity
-          scale="28.24 28.24 28.24"
+          id="bowser-model"
+          scale="14.243766309982801 14.243766309982801 14.243766309982801"
           animation-mixer="loop: repeat"
           gltf-model="#connection-model"
           class="clickable"
           gesture-handler
           rotation="-90 0 0"
-        >
-          <a-animation
-            attribute="material.color"
-            from="#00f"
-            to="#0040ff"
-            dur="3000"
-            direction="alternate"
-            repeat="indefinite"
-          ></a-animation>
-        </a-entity>
+        ></a-entity>
       </a-marker>
 
-      <!-- Excellence Marker -->
+      <!-- Excellence -->
       <a-marker
+        id="animated-marker"
         class="valid-ar-marker"
         data-station="station4"
         type="pattern"
@@ -150,28 +124,22 @@
         raycaster="objects: .clickable"
         emitevents="true"
         cursor="fuse: false; rayOrigin: mouse;"
+        id="markerA"
       >
         <a-entity
-          scale="28.24 28.24 28.24"
+          id="bowser-model"
+          scale="14.243766309982801 14.243766309982801 14.243766309982801"
           animation-mixer="loop: repeat"
           gltf-model="#excellence-model"
           class="clickable"
           gesture-handler
           rotation="-90 0 0"
-        >
-          <a-animation
-            attribute="material.color"
-            from="#00f"
-            to="#0040ff"
-            dur="3000"
-            direction="alternate"
-            repeat="indefinite"
-          ></a-animation>
-        </a-entity>
+        ></a-entity>
       </a-marker>
 
-      <!-- Innovation Marker -->
+      <!-- Innovation -->
       <a-marker
+        id="animated-marker"
         class="valid-ar-marker"
         data-station="station5"
         type="pattern"
@@ -180,24 +148,17 @@
         raycaster="objects: .clickable"
         emitevents="true"
         cursor="fuse: false; rayOrigin: mouse;"
+        id="markerA"
       >
         <a-entity
-          scale="28.24 28.24 28.24"
+          id="bowser-model"
+          scale="14.243766309982801 14.243766309982801 14.243766309982801"
           animation-mixer="loop: repeat"
           gltf-model="#innovation-model"
           class="clickable"
           gesture-handler
           rotation="-90 0 0"
-        >
-          <a-animation
-            attribute="material.color"
-            from="#00f"
-            to="#0040ff"
-            dur="3000"
-            direction="alternate"
-            repeat="indefinite"
-          ></a-animation>
-        </a-entity>
+        ></a-entity>
       </a-marker>
 
       <a-entity camera></a-entity>
@@ -213,17 +174,20 @@
           marker.addEventListener("markerFound", async () => {
             const station = marker.getAttribute("data-station");
             try {
-              await fetch("https://ar-app-omega.vercel.app/api/scanned", {
-                method: "post",
-                headers: {
-                  Accept: "application/json",
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                  username: username,
-                  station: station,
-                }),
-              });
+              let data = await fetch(
+                "https://ar-app-omega.vercel.app/api/scanned",
+                {
+                  method: "post",
+                  headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify({
+                    username: username,
+                    station: station,
+                  }),
+                }
+              );
             } catch (err) {
               console.log(err);
             }
