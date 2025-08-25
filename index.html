@@ -205,8 +205,6 @@
         ></a-entity>
       </a-marker>
 
-      <!-- Fake QR -->
-
       <!-- Robot 1 -->
       <a-marker
         id="animated-marker"
@@ -231,6 +229,7 @@
           ></a-entity
         >
       </a-marker>
+
       <!-- Robot 2 -->
       <a-marker
         id="animated-marker"
@@ -464,20 +463,14 @@
           marker.addEventListener("markerFound", async () => {
             const station = marker.getAttribute("data-station");
             try {
-              let data = await fetch(
-                "https://ar-app-omega.vercel.app/api/scanned",
-                {
-                  method: "post",
-                  headers: {
-                    Accept: "application/json",
-                    "Content-Type": "application/json",
-                  },
-                  body: JSON.stringify({
-                    username: username,
-                    station: station,
-                  }),
-                }
-              );
+              await fetch("https://ar-app-omega.vercel.app/api/scanned", {
+                method: "post",
+                headers: {
+                  Accept: "application/json",
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ username, station }),
+              });
             } catch (err) {
               console.log(err);
             }
