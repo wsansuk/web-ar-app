@@ -39,27 +39,43 @@
           id="innovation-model"
           src="assets/ar_innovation/asset.glb"
         ></a-asset-item>
+        <a-asset-item
+          id="robot-model-1"
+          src="assets/ar_robot_1/asset.glb"
+        ></a-asset-item>
+        <a-asset-item
+          id="robot-model-2"
+          src="assets/ar_robot_2/asset.glb"
+        ></a-asset-item>
+        <a-asset-item
+          id="robot-model-3"
+          src="assets/ar_robot_3/asset.glb"
+        ></a-asset-item>
+        <a-asset-item
+          id="robot-model-4"
+          src="assets/ar_robot_4/asset.glb"
+        ></a-asset-item>
+        <a-asset-item
+          id="robot-model-5"
+          src="assets/ar_robot_5/asset.glb"
+        ></a-asset-item>
+        <a-asset-item
+          id="robot-model-6"
+          src="assets/ar_robot_6/asset.glb"
+        ></a-asset-item>
+        <a-asset-item
+          id="robot-model-7"
+          src="assets/ar_robot_7/asset.glb"
+        ></a-asset-item>
+        <a-asset-item
+          id="robot-model-8"
+          src="assets/ar_robot_8/asset.glb"
+        ></a-asset-item>
       </a-assets>
 
-      <!-- แสง -->
-      <a-entity
-        light="type: ambient; color: #ffffff; intensity: 0.6"
-      ></a-entity>
-      <a-entity
-        light="type: directional; color: #ffffff; intensity: 1.2"
-        position="1 3 1"
-      ></a-entity>
-      <a-entity
-        light="type: directional; color: #ffffff; intensity: 1"
-        position="-2 3 -1"
-      ></a-entity>
-      <a-entity
-        light="type: directional; color: #ffffff; intensity: 0.8"
-        position="0 2 2"
-      ></a-entity>
-
-      <!-- Customer Marker -->
+      <!-- Customer -->
       <a-marker
+        id="animated-marker"
         class="valid-ar-marker"
         data-station="station1"
         type="pattern"
@@ -68,21 +84,22 @@
         raycaster="objects: .clickable"
         emitevents="true"
         cursor="fuse: false; rayOrigin: mouse;"
+        id="markerA"
       >
         <a-entity
-          id="customer-entity"
-          gltf-model="#customer-model"
-          scale="28 28 28"
-          position="0 0.1 0"
-          rotation="-90 0 0"
+          id="bowser-model"
+          scale="14.243766309982801 14.243766309982801 14.243766309982801"
           animation-mixer="loop: repeat"
+          gltf-model="#customer-model"
           class="clickable"
           gesture-handler
+          rotation="-90 0 0"
         ></a-entity>
       </a-marker>
 
-      <!-- Result Marker -->
+      <!-- Result -->
       <a-marker
+        id="animated-marker"
         class="valid-ar-marker"
         data-station="station2"
         type="pattern"
@@ -91,21 +108,22 @@
         raycaster="objects: .clickable"
         emitevents="true"
         cursor="fuse: false; rayOrigin: mouse;"
+        id="markerA"
       >
         <a-entity
-          id="result-entity"
-          gltf-model="#result-model"
-          scale="28 28 28"
-          position="0 0.1 0"
-          rotation="-90 0 0"
+          id="bowser-model"
+          scale="14.243766309982801 14.243766309982801 14.243766309982801"
           animation-mixer="loop: repeat"
+          gltf-model="#result-model"
           class="clickable"
           gesture-handler
+          rotation="-90 0 0"
         ></a-entity>
       </a-marker>
 
-      <!-- Connection Marker -->
+      <!-- Connection -->
       <a-marker
+        id="animated-marker"
         class="valid-ar-marker"
         data-station="station3"
         type="pattern"
@@ -114,21 +132,22 @@
         raycaster="objects: .clickable"
         emitevents="true"
         cursor="fuse: false; rayOrigin: mouse;"
+        id="markerA"
       >
         <a-entity
-          id="connection-entity"
-          gltf-model="#connection-model"
-          scale="28 28 28"
-          position="0 0.1 0"
-          rotation="-90 0 0"
+          id="bowser-model"
+          scale="14.243766309982801 14.243766309982801 14.243766309982801"
           animation-mixer="loop: repeat"
+          gltf-model="#connection-model"
           class="clickable"
           gesture-handler
+          rotation="-90 0 0"
         ></a-entity>
       </a-marker>
 
-      <!-- Excellence Marker -->
+      <!-- Excellence -->
       <a-marker
+        id="animated-marker"
         class="valid-ar-marker"
         data-station="station4"
         type="pattern"
@@ -137,21 +156,22 @@
         raycaster="objects: .clickable"
         emitevents="true"
         cursor="fuse: false; rayOrigin: mouse;"
+        id="markerA"
       >
         <a-entity
-          id="excellence-entity"
-          gltf-model="#excellence-model"
-          scale="28 28 28"
-          position="0 0.1 0"
-          rotation="-90 0 0"
+          id="bowser-model"
+          scale="14.243766309982801 14.243766309982801 14.243766309982801"
           animation-mixer="loop: repeat"
+          gltf-model="#excellence-model"
           class="clickable"
           gesture-handler
+          rotation="-90 0 0"
         ></a-entity>
       </a-marker>
 
-      <!-- Innovation Marker -->
+      <!-- Innovation -->
       <a-marker
+        id="animated-marker"
         class="valid-ar-marker"
         data-station="station5"
         type="pattern"
@@ -160,252 +180,224 @@
         raycaster="objects: .clickable"
         emitevents="true"
         cursor="fuse: false; rayOrigin: mouse;"
+        id="markerA"
       >
         <a-entity
-          id="innovation-entity"
+          id="bowser-model"
+          scale="14.243766309982801 14.243766309982801 14.243766309982801"
+          animation-mixer="loop: repeat"
           gltf-model="#innovation-model"
-          scale="28 28 28"
-          position="0 0.1 0"
-          rotation="-90 0 0"
-          animation-mixer="loop: repeat"
           class="clickable"
           gesture-handler
+          rotation="-90 0 0"
         ></a-entity>
       </a-marker>
 
-      <!-- Robot1 -->
+      <!-- Fake QR -->
+
+      <!-- Robot 1 -->
       <a-marker
-        class="valid-ar-marker"
-        data-station="robot1"
+        id="animated-marker"
+        class="invalid-ar-marker"
         type="pattern"
         preset="custom"
-        url="assets/ar_robot1/marker.patt"
+        url="assets/ar_robot_1/marker.patt"
         raycaster="objects: .clickable"
         emitevents="true"
         cursor="fuse: false; rayOrigin: mouse;"
+        id="markerA"
       >
         <a-entity
-          id="robot2-entity"
-          gltf-model="#robot1-model"
-          scale="28 28 28"
-          position="0 0.1 0"
-          rotation="-90 0 0"
+          id="bowser-model"
+          scale="5 5 5"
           animation-mixer="loop: repeat"
+          gltf-model="#robot-model-1"
           class="clickable"
           gesture-handler
-        ></a-entity>
+          rotation="-90 0 0"
+        >
+          ></a-entity
+        >
+      </a-marker>
+      <!-- Robot 2 -->
+      <a-marker
+        id="animated-marker"
+        class="invalid-ar-marker"
+        type="pattern"
+        preset="custom"
+        url="assets/ar_robot_2/marker.patt"
+        raycaster="objects: .clickable"
+        emitevents="true"
+        cursor="fuse: false; rayOrigin: mouse;"
+        id="markerA"
+      >
+        <a-entity
+          id="bowser-model"
+          scale="5 5 5"
+          animation-mixer="loop: repeat"
+          gltf-model="#robot-model-2"
+          class="clickable"
+          gesture-handler
+          rotation="-90 0 0"
+        >
+          ></a-entity
+        >
       </a-marker>
 
-      <!-- Robot2 -->
+      <!-- Robot 3 -->
       <a-marker
-        class="valid-ar-marker"
-        data-station="robot2"
+        id="animated-marker"
+        class="invalid-ar-marker"
         type="pattern"
         preset="custom"
-        url="assets/ar_robot2/marker.patt"
+        url="assets/ar_robot_3/marker.patt"
         raycaster="objects: .clickable"
         emitevents="true"
         cursor="fuse: false; rayOrigin: mouse;"
+        id="markerA"
       >
         <a-entity
-          id="robot2-entity"
-          gltf-model="#robot2-model"
-          scale="28 28 28"
-          position="0 0.1 0"
-          rotation="-90 0 0"
+          id="bowser-model"
+          scale="5 5 5"
           animation-mixer="loop: repeat"
+          gltf-model="#robot-model-3"
           class="clickable"
           gesture-handler
-        ></a-entity>
+          rotation="-90 0 0"
+        >
+          ></a-entity
+        >
       </a-marker>
 
-      <!-- Robot3 -->
+      <!-- Robot 4 -->
       <a-marker
-        class="valid-ar-marker"
-        data-station="robot3"
+        id="animated-marker"
+        class="invalid-ar-marker"
         type="pattern"
         preset="custom"
-        url="assets/ar_robot3/marker.patt"
+        url="assets/ar_robot_4/marker.patt"
         raycaster="objects: .clickable"
         emitevents="true"
         cursor="fuse: false; rayOrigin: mouse;"
+        id="markerA"
       >
         <a-entity
-          id="robot3-entity"
-          gltf-model="#robot3-model"
-          scale="28 28 28"
-          position="0 0.1 0"
-          rotation="-90 0 0"
+          id="bowser-model"
+          scale="3.5 3.5 3.5"
           animation-mixer="loop: repeat"
+          gltf-model="#robot-model-4"
           class="clickable"
           gesture-handler
-        ></a-entity>
+          rotation="-90 0 0"
+        >
+          ></a-entity
+        >
       </a-marker>
 
-      <!-- Robot4 -->
+      <!-- Robot 5 -->
       <a-marker
-        class="valid-ar-marker"
-        data-station="robot4"
+        id="animated-marker"
+        class="invalid-ar-marker"
         type="pattern"
         preset="custom"
-        url="assets/ar_robot4/marker.patt"
+        url="assets/ar_robot_5/marker.patt"
         raycaster="objects: .clickable"
         emitevents="true"
         cursor="fuse: false; rayOrigin: mouse;"
+        id="markerA"
       >
         <a-entity
-          id="robot4-entity"
-          gltf-model="#robot4-model"
-          scale="28 28 28"
-          position="0 0.1 0"
-          rotation="-90 0 0"
+          id="bowser-model"
+          scale="2.5 2.5 2.5"
           animation-mixer="loop: repeat"
+          gltf-model="#robot-model-5"
           class="clickable"
           gesture-handler
-        ></a-entity>
+          rotation="-90 0 0"
+        >
+          ></a-entity
+        >
       </a-marker>
 
-      <!-- Robot5 -->
+      <!-- Robot 6 -->
       <a-marker
-        class="valid-ar-marker"
-        data-station="robot5"
+        id="animated-marker"
+        class="invalid-ar-marker"
         type="pattern"
         preset="custom"
-        url="assets/ar_robot5/marker.patt"
+        url="assets/ar_robot_6/marker.patt"
         raycaster="objects: .clickable"
         emitevents="true"
         cursor="fuse: false; rayOrigin: mouse;"
+        id="markerA"
       >
         <a-entity
-          id="robot5-entity"
-          gltf-model="#robot5-model"
-          scale="28 28 28"
-          position="0 0.1 0"
-          rotation="-90 0 0"
+          id="bowser-model"
+          scale="2.5 2.5 2.5"
           animation-mixer="loop: repeat"
+          gltf-model="#robot-model-6"
           class="clickable"
           gesture-handler
-        ></a-entity>
+          rotation="-90 0 0"
+        >
+          ></a-entity
+        >
       </a-marker>
 
-      <!-- Robot6 -->
+      <!-- Robot 7 -->
       <a-marker
-        class="valid-ar-marker"
-        data-station="robot6"
+        id="animated-marker"
+        class="invalid-ar-marker"
         type="pattern"
         preset="custom"
-        url="assets/ar_robot6/marker.patt"
+        url="assets/ar_robot_7/marker.patt"
         raycaster="objects: .clickable"
         emitevents="true"
         cursor="fuse: false; rayOrigin: mouse;"
+        id="markerA"
       >
         <a-entity
-          id="robot6-entity"
-          gltf-model="#robot6-model"
-          scale="28 28 28"
-          position="0 0.1 0"
-          rotation="-90 0 0"
+          id="bowser-model"
+          scale="3 3 3"
           animation-mixer="loop: repeat"
+          gltf-model="#robot-model-7"
           class="clickable"
           gesture-handler
-        ></a-entity>
+          rotation="-90 0 0"
+        >
+          ></a-entity
+        >
       </a-marker>
 
-      <!-- Robot7 -->
+      <!-- Robot 8 -->
       <a-marker
-        class="valid-ar-marker"
-        data-station="robot7"
+        id="animated-marker"
+        class="invalid-ar-marker"
         type="pattern"
         preset="custom"
-        url="assets/ar_robot7/marker.patt"
+        url="assets/ar_robot_8/marker.patt"
         raycaster="objects: .clickable"
         emitevents="true"
         cursor="fuse: false; rayOrigin: mouse;"
+        id="markerA"
       >
         <a-entity
-          id="robot7-entity"
-          gltf-model="#robot2-model"
-          scale="28 28 28"
-          position="0 0.1 0"
-          rotation="-90 0 0"
+          id="bowser-model"
+          scale="2 2 2"
           animation-mixer="loop: repeat"
+          gltf-model="#robot-model-8"
           class="clickable"
           gesture-handler
-        ></a-entity>
-      </a-marker>
-
-      <!-- Robot8 -->
-      <a-marker
-        class="valid-ar-marker"
-        data-station="robot8"
-        type="pattern"
-        preset="custom"
-        url="assets/ar_robot8/marker.patt"
-        raycaster="objects: .clickable"
-        emitevents="true"
-        cursor="fuse: false; rayOrigin: mouse;"
-      >
-        <a-entity
-          id="robot8-entity"
-          gltf-model="#robot8-model"
-          scale="28 28 28"
-          position="0 0.1 0"
           rotation="-90 0 0"
-          animation-mixer="loop: repeat"
-          class="clickable"
-          gesture-handler
-        ></a-entity>
+        >
+          ></a-entity
+        >
       </a-marker>
 
       <a-entity camera></a-entity>
     </a-scene>
 
-    <!-- Script เปลี่ยนทุก mesh เป็น Gradient ฟ้า->เขียว -->
     <script>
-      const topColor = new THREE.Color(0x0040ff); // ฟ้า
-      const bottomColor = new THREE.Color(0x00ff40); // เขียว
-
-      const entities = [
-        "customer-entity",
-        "result-entity",
-        "connection-entity",
-        "excellence-entity",
-        "innovation-entity",
-      ];
-
-      entities.forEach((id) => {
-        const el = document.querySelector("#" + id);
-        el.addEventListener("model-loaded", () => {
-          const model = el.getObject3D("mesh");
-          model.traverse((node) => {
-            if (node.isMesh) {
-              const geometry = node.geometry;
-              const colorAttr = new Float32Array(
-                geometry.attributes.position.count * 3
-              );
-              for (let i = 0; i < geometry.attributes.position.count; i++) {
-                const y = geometry.attributes.position.getY(i);
-                const t =
-                  (y - geometry.boundingBox.min.y) /
-                  (geometry.boundingBox.max.y - geometry.boundingBox.min.y);
-                const color = topColor.clone().lerp(bottomColor, 1 - t);
-                colorAttr[i * 3] = color.r;
-                colorAttr[i * 3 + 1] = color.g;
-                colorAttr[i * 3 + 2] = color.b;
-              }
-              geometry.setAttribute(
-                "color",
-                new THREE.BufferAttribute(colorAttr, 3)
-              );
-              node.material = new THREE.MeshBasicMaterial({
-                vertexColors: true,
-              });
-            }
-          });
-        });
-      });
-
-      // Marker scan API
       window.onload = function () {
         const urlParams = new URLSearchParams(window.location.search);
         const username = urlParams.get("username");
@@ -415,13 +407,16 @@
           marker.addEventListener("markerFound", async () => {
             const station = marker.getAttribute("data-station");
             try {
-              await fetch("https://ar-app-omega.vercel.app/api/scanned", {
+              let data = await fetch("http://localhost:3000/api/scanned", {
                 method: "post",
                 headers: {
                   Accept: "application/json",
                   "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ username, station }),
+                body: JSON.stringify({
+                  username: username,
+                  station: station,
+                }),
               });
             } catch (err) {
               console.log(err);
