@@ -13,7 +13,7 @@
       vr-mode-ui="enabled: false;"
       loading-screen="enabled: false;"
       renderer="logarithmicDepthBuffer: true;"
-      arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
+      arjs="trackingMethod: best; sourceType: camera; debugUIEnabled: false;"
       id="scene"
       embedded
       gesture-detector
@@ -207,7 +207,7 @@
 
       <!-- Robot 1 -->
       <a-marker
-        id="marker-robot1"
+        id="animated-marker"
         class="invalid-ar-marker"
         type="pattern"
         preset="custom"
@@ -215,9 +215,10 @@
         raycaster="objects: .clickable"
         emitevents="true"
         cursor="fuse: false; rayOrigin: mouse;"
+        id="markerA"
       >
         <a-entity
-          id="robot-entity-1"
+          id="bowser-model"
           scale="5 5 5"
           animation-mixer="loop: repeat"
           gltf-model="#robot-model-1"
@@ -231,7 +232,7 @@
 
       <!-- Robot 2 -->
       <a-marker
-        id="marker-robot2"
+        id="animated-marker"
         class="invalid-ar-marker"
         type="pattern"
         preset="custom"
@@ -239,9 +240,10 @@
         raycaster="objects: .clickable"
         emitevents="true"
         cursor="fuse: false; rayOrigin: mouse;"
+        id="markerA"
       >
         <a-entity
-          id="robot-entity-2"
+          id="bowser-model"
           scale="5 5 5"
           animation-mixer="loop: repeat"
           gltf-model="#robot-model-2"
@@ -255,7 +257,7 @@
 
       <!-- Robot 3 -->
       <a-marker
-        id="marker-robot3"
+        id="animated-marker"
         class="invalid-ar-marker"
         type="pattern"
         preset="custom"
@@ -263,9 +265,10 @@
         raycaster="objects: .clickable"
         emitevents="true"
         cursor="fuse: false; rayOrigin: mouse;"
+        id="markerA"
       >
         <a-entity
-          id="robot-entity-3"
+          id="bowser-model"
           scale="5 5 5"
           animation-mixer="loop: repeat"
           gltf-model="#robot-model-3"
@@ -279,7 +282,7 @@
 
       <!-- Robot 4 -->
       <a-marker
-        id="marker-robot4"
+        id="animated-marker"
         class="invalid-ar-marker"
         type="pattern"
         preset="custom"
@@ -287,9 +290,10 @@
         raycaster="objects: .clickable"
         emitevents="true"
         cursor="fuse: false; rayOrigin: mouse;"
+        id="markerA"
       >
         <a-entity
-          id="robot-entity-4"
+          id="bowser-model"
           scale="3.5 3.5 3.5"
           animation-mixer="loop: repeat"
           gltf-model="#robot-model-4"
@@ -303,7 +307,7 @@
 
       <!-- Robot 5 -->
       <a-marker
-        id="marker-robot5"
+        id="animated-marker"
         class="invalid-ar-marker"
         type="pattern"
         preset="custom"
@@ -311,9 +315,10 @@
         raycaster="objects: .clickable"
         emitevents="true"
         cursor="fuse: false; rayOrigin: mouse;"
+        id="markerA"
       >
         <a-entity
-          id="robot-entity-5"
+          id="bowser-model"
           scale="2.5 2.5 2.5"
           animation-mixer="loop: repeat"
           gltf-model="#robot-model-5"
@@ -327,7 +332,7 @@
 
       <!-- Robot 6 -->
       <a-marker
-        id="marker-robot6"
+        id="animated-marker"
         class="invalid-ar-marker"
         type="pattern"
         preset="custom"
@@ -335,9 +340,10 @@
         raycaster="objects: .clickable"
         emitevents="true"
         cursor="fuse: false; rayOrigin: mouse;"
+        id="markerA"
       >
         <a-entity
-          id="robot-entity-6"
+          id="bowser-model"
           scale="2.5 2.5 2.5"
           animation-mixer="loop: repeat"
           gltf-model="#robot-model-6"
@@ -351,7 +357,7 @@
 
       <!-- Robot 7 -->
       <a-marker
-        id="marker-robot7"
+        id="animated-marker"
         class="invalid-ar-marker"
         type="pattern"
         preset="custom"
@@ -359,9 +365,10 @@
         raycaster="objects: .clickable"
         emitevents="true"
         cursor="fuse: false; rayOrigin: mouse;"
+        id="markerA"
       >
         <a-entity
-          id="robot-entity-7"
+          id="bowser-model"
           scale="3 3 3"
           animation-mixer="loop: repeat"
           gltf-model="#robot-model-7"
@@ -375,7 +382,7 @@
 
       <!-- Robot 8 -->
       <a-marker
-        id="marker-robot8"
+        id="animated-marker"
         class="invalid-ar-marker"
         type="pattern"
         preset="custom"
@@ -383,9 +390,10 @@
         raycaster="objects: .clickable"
         emitevents="true"
         cursor="fuse: false; rayOrigin: mouse;"
+        id="markerA"
       >
         <a-entity
-          id="robot-entity-8"
+          id="bowser-model"
           scale="2 2 2"
           animation-mixer="loop: repeat"
           gltf-model="#robot-model-8"
